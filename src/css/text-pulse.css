@@ -1,0 +1,5 @@
+@keyframes bfx-pulso-texto {
+  0%, 100% { color: var(--bfx-pulso-cor-base, #b0b0b0); text-shadow: 0 0 0 rgb(var(--bfx-accent) / 0%); }
+  50% { color: var(--bfx-pulso-cor-ativa, #fff); text-shadow: 0 0 var(--bfx-pulso-brilho, 8px) rgb(var(--bfx-accent) / 60%); }
+}
+:is(.bfx-texto-pulsante, .bfx-text-pulse) { animation: bfx-pulso-texto var(--bfx-pulso-duracao, 3s) ease-in-out infinite; }

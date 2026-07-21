@@ -1,0 +1,14 @@
+:is(.bfx-busca-capsula, .bfx-search-pill) {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem 1rem;
+  border: 1px solid rgb(0 0 0 / 8%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 5%);
+  transition: border-color var(--bfx-duration-normal) ease, box-shadow var(--bfx-duration-normal) ease;
+}
+:is(.bfx-busca-capsula, .bfx-search-pill):focus-within { border-color: rgb(var(--bfx-accent)); box-shadow: 0 4px 20px rgb(var(--bfx-accent) / 15%); }
+:is(.bfx-busca-capsula, .bfx-search-pill) input { min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; color: inherit; }
+:is(.bfx-busca-capsula, .bfx-search-pill) button { border: 0; padding: 0; color: inherit; background: none; cursor: pointer; }

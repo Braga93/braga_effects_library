@@ -1,0 +1,22 @@
+:is(.bfx-botao-contorno-brilho, .bfx-button-outline-glow) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--bfx-radius-sm);
+  color: #fff;
+  background: rgb(var(--bfx-accent));
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--bfx-duration-normal) var(--bfx-ease-out), color var(--bfx-duration-normal) var(--bfx-ease-out), border-color var(--bfx-duration-normal) var(--bfx-ease-out), box-shadow var(--bfx-duration-normal) var(--bfx-ease-out);
+}
+:is(.bfx-botao-contorno-brilho, .bfx-button-outline-glow):hover,
+:is(.bfx-botao-contorno-brilho, .bfx-button-outline-glow):focus-visible {
+  color: rgb(var(--bfx-accent));
+  background: transparent;
+  border-color: rgb(var(--bfx-accent));
+  box-shadow: 0 0 18px rgb(var(--bfx-accent) / 32%);
+}

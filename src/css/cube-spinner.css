@@ -1,0 +1,20 @@
+@keyframes bfx-cube-spin {
+  0% { transform: rotate(45deg) rotateX(-25deg) rotateY(25deg); }
+  50% { transform: rotate(45deg) rotateX(-385deg) rotateY(25deg); }
+  100% { transform: rotate(45deg) rotateX(-385deg) rotateY(385deg); }
+}
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) {
+  --bfx-cube-size: 28px;
+  position: relative;
+  width: var(--bfx-cube-size);
+  height: var(--bfx-cube-size);
+  transform-style: preserve-3d;
+  animation: bfx-cube-spin var(--bfx-cube-duration, 2.8s) infinite ease-in-out;
+}
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span { position: absolute; inset: 0; border: 1.5px solid rgb(var(--bfx-accent)); background: rgb(var(--bfx-accent) / 6%); }
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span:nth-child(1) { transform: translateZ(calc(var(--bfx-cube-size) / -2)) rotateY(180deg); }
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span:nth-child(2) { transform: rotateY(-270deg) translateX(50%); transform-origin: top right; }
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span:nth-child(3) { transform: rotateY(270deg) translateX(-50%); transform-origin: center left; }
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span:nth-child(4) { transform: rotateX(90deg) translateY(-50%); transform-origin: top center; }
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span:nth-child(5) { transform: rotateX(-90deg) translateY(50%); transform-origin: bottom center; }
+:is(.bfx-cubo-giratorio, .bfx-cube-spinner) > span:nth-child(6) { transform: translateZ(calc(var(--bfx-cube-size) / 2)); }

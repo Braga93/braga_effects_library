@@ -1,0 +1,18 @@
+@keyframes bfx-matrix-fall { to { transform: translateY(210%); } }
+:is(.bfx-chuva-matrix, .bfx-matrix-rain) { position: absolute; inset: 0; overflow: hidden; pointer-events: none; opacity: var(--bfx-matrix-opacity, .15); }
+:is(.bfx-chuva-matrix, .bfx-matrix-rain) > span {
+  position: absolute;
+  top: -110%;
+  width: 1.5rem;
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  color: transparent;
+  font: 700 .9rem/1 ui-monospace, monospace;
+  letter-spacing: .08em;
+  background: linear-gradient(to bottom, #fff, rgb(var(--bfx-accent)) 18%, rgb(var(--bfx-accent) / 40%) 55%, transparent);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bfx-matrix-fall var(--bfx-matrix-speed, 5s) linear infinite;
+}
+:is(.bfx-chuva-matrix, .bfx-matrix-rain) > span::before { content: attr(data-chars); }

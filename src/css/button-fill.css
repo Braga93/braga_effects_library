@@ -1,0 +1,31 @@
+:is(.bfx-botao-preenchimento, .bfx-button-fill) {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.9rem 2rem;
+  border: 1px solid rgb(var(--bfx-accent) / 45%);
+  border-radius: var(--bfx-radius-sm);
+  color: var(--bfx-button-color, #fff);
+  background: var(--bfx-button-bg, #10131b);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--bfx-duration-normal) var(--bfx-ease-out), border-color var(--bfx-duration-normal) var(--bfx-ease-out), transform var(--bfx-duration-fast) ease;
+}
+:is(.bfx-botao-preenchimento, .bfx-button-fill)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(var(--bfx-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms var(--bfx-ease-out);
+}
+:is(.bfx-botao-preenchimento, .bfx-button-fill):hover::before,
+:is(.bfx-botao-preenchimento, .bfx-button-fill):focus-visible::before { transform: scaleX(1); }
+:is(.bfx-botao-preenchimento, .bfx-button-fill):active { transform: translateY(1px); }

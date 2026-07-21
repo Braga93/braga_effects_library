@@ -1,0 +1,33 @@
+{
+  "name": "@braga/effects",
+  "version": "1.4.0",
+  "description": "Biblioteca privada de efeitos CSS e utilitários JavaScript reutilizáveis, com API em português.",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./styles.css": "./src/styles.css"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/check-library.mjs && npm test",
+    "showcase": "node scripts/serve-showcase.mjs",
+    "new:effect": "node scripts/new-effect.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "css",
+    "efeitos",
+    "javascript",
+    "biblioteca-privada",
+    "portugues"
+  ],
+  "license": "UNLICENSED"
+}

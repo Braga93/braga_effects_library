@@ -1,0 +1,10 @@
+:is(.bfx-card-zoom-imagem, .bfx-image-zoom-card) { overflow: hidden; }
+:is(.bfx-card-zoom-imagem, .bfx-image-zoom-card) img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 550ms var(--bfx-ease-out), filter 550ms var(--bfx-ease-out);
+}
+:is(.bfx-card-zoom-imagem, .bfx-image-zoom-card):hover img,
+:is(.bfx-card-zoom-imagem, .bfx-image-zoom-card):focus-within img { transform: scale(var(--bfx-zoom, 1.055)); filter: brightness(var(--bfx-brightness, 1.04)); }

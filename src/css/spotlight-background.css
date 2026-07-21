@@ -1,0 +1,4 @@
+:is(.bfx-fundo-holofote, .bfx-spotlight-background) {
+  color: var(--bfx-spotlight-color, #fff);
+  background: radial-gradient(circle at var(--bfx-spotlight-x, 20%) var(--bfx-spotlight-y, 20%), var(--bfx-spotlight-light, #3a3a3a) 0%, var(--bfx-spotlight-mid, #141414) 45%, var(--bfx-spotlight-dark, #050505) 80%, #000 100%);
+}

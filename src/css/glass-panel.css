@@ -1,0 +1,8 @@
+:is(.bfx-painel-vidro, .bfx-glass-panel) {
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: var(--bfx-radius);
+  background: rgb(255 255 255 / 8%);
+  box-shadow: var(--bfx-shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}

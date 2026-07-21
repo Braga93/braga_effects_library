@@ -1,0 +1,9 @@
+:is(.bfx-elevar-hover, .bfx-hover-lift) {
+  transition: transform var(--bfx-duration-fast) ease,
+    box-shadow var(--bfx-duration-fast) ease;
+}
+
+:is(.bfx-elevar-hover, .bfx-hover-lift):hover {
+  transform: translateY(-4px);
+  box-shadow: var(--bfx-shadow);
+}

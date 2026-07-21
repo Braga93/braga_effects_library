@@ -1,0 +1,12 @@
+:is(.bfx-sobretitulo, .bfx-eyebrow) {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  color: rgb(var(--bfx-accent));
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+:is(.bfx-sobretitulo, .bfx-eyebrow)::before { content: ""; width: 1.75rem; height: 1.5px; background: currentColor; }
+:is(.bfx-sobretitulo--duplo, .bfx-eyebrow--both)::after { content: ""; width: 1.75rem; height: 1.5px; background: currentColor; }

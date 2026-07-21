@@ -1,0 +1,10 @@
+:root {
+  --bfx-duration-fast: 160ms;
+  --bfx-duration-normal: 260ms;
+  --bfx-radius-sm: 5px;
+  --bfx-radius: 14px;
+  --bfx-shadow: 0 16px 40px rgb(0 0 0 / 24%);
+  --bfx-glow-color: 98 180 255;
+  --bfx-accent: 98 180 255;
+  --bfx-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}

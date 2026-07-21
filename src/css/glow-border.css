@@ -1,0 +1,24 @@
+:is(.bfx-borda-brilhante, .bfx-glow-border) {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgb(var(--bfx-glow-color) / 45%);
+  border-radius: var(--bfx-radius);
+}
+
+:is(.bfx-borda-brilhante, .bfx-glow-border)::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgb(var(--bfx-glow-color) / 45%);
+  filter: blur(14px);
+  opacity: 0;
+  transition: opacity var(--bfx-duration-normal) ease;
+  pointer-events: none;
+}
+
+:is(.bfx-borda-brilhante, .bfx-glow-border):hover::before,
+:is(.bfx-borda-brilhante, .bfx-glow-border):focus-within::before {
+  opacity: 1;
+}

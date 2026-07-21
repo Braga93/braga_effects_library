@@ -1,0 +1,108 @@
+/* Card de revelação: imagem dessaturada e discreta que recupera cor no hover/foco. */
+:is(.bfx-card-revelacao, .bfx-reveal-card) {
+  --bfx-reveal-bg: var(--bfx-theme-surface, #171923);
+  --bfx-reveal-border: rgb(var(--bfx-accent, 98 180 255) / 22%);
+  --bfx-reveal-accent: var(--bfx-accent, 98 180 255);
+  --bfx-reveal-image-opacity: 0.45;
+  --bfx-reveal-image-active-opacity: 0.9;
+  --bfx-reveal-scale: 1.045;
+  --bfx-reveal-lift: -10px;
+  --bfx-reveal-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bfx-reveal-bg) 76%, transparent);
+  border: 1px solid var(--bfx-reveal-border);
+  border-radius: var(--bfx-reveal-radius);
+  box-shadow: 0 15px 35px rgb(0 0 0 / 30%);
+  transition:
+    transform var(--bfx-duration-normal, 260ms) var(--bfx-ease-out, cubic-bezier(.22,1,.36,1)),
+    border-color var(--bfx-duration-normal, 260ms) ease,
+    background var(--bfx-duration-normal, 260ms) ease,
+    box-shadow var(--bfx-duration-normal, 260ms) ease;
+}
+
+:is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) {
+  position: relative;
+  width: 100%;
+  min-height: var(--bfx-reveal-media-height, 220px);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bfx-reveal-bg) 70%, #000);
+}
+
+:is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > img,
+:is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > video,
+:is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > picture,
+:is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > :is(.bfx-card-revelacao-visual, .bfx-reveal-card-visual) {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+  mix-blend-mode: luminosity;
+  filter: grayscale(1) saturate(.25) contrast(.9);
+  opacity: var(--bfx-reveal-image-opacity);
+  transform: scale(1);
+  transition:
+    transform 500ms var(--bfx-ease-out, cubic-bezier(.22,1,.36,1)),
+    filter 500ms ease,
+    opacity 500ms ease,
+    mix-blend-mode 500ms ease;
+}
+
+:is(.bfx-card-revelacao-conteudo, .bfx-reveal-card-content) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--bfx-reveal-content-padding, 28px);
+}
+
+:is(.bfx-card-revelacao-conteudo, .bfx-reveal-card-content) h2,
+:is(.bfx-card-revelacao-conteudo, .bfx-reveal-card-content) h3 {
+  margin: 0 0 12px;
+  color: var(--bfx-theme-text, #fff);
+  transition: color var(--bfx-duration-normal, 260ms) ease;
+}
+
+:is(.bfx-card-revelacao-conteudo, .bfx-reveal-card-content) p {
+  margin: 0 0 22px;
+  color: color-mix(in srgb, var(--bfx-theme-text, #fff) 65%, transparent);
+  line-height: 1.6;
+}
+
+:is(.bfx-card-revelacao-acao, .bfx-reveal-card-action) {
+  align-self: flex-start;
+  margin-top: auto;
+  color: rgb(var(--bfx-reveal-accent));
+  border-bottom: 1px solid rgb(var(--bfx-reveal-accent) / 35%);
+  text-decoration: none;
+  transition: color 250ms ease, border-color 250ms ease;
+}
+
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) {
+  transform: translateY(var(--bfx-reveal-lift));
+  border-color: rgb(var(--bfx-reveal-accent));
+  background: color-mix(in srgb, rgb(var(--bfx-reveal-accent)) 12%, var(--bfx-reveal-bg));
+  box-shadow: 0 25px 50px rgb(var(--bfx-reveal-accent) / 20%);
+}
+
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > img,
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > video,
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > picture,
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-midia, .bfx-reveal-card-media) > :is(.bfx-card-revelacao-visual, .bfx-reveal-card-visual) {
+  mix-blend-mode: normal;
+  filter: grayscale(0) saturate(1) contrast(1);
+  opacity: var(--bfx-reveal-image-active-opacity);
+  transform: scale(var(--bfx-reveal-scale));
+}
+
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-conteudo, .bfx-reveal-card-content) h2,
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-conteudo, .bfx-reveal-card-content) h3 {
+  color: rgb(var(--bfx-reveal-accent));
+}
+
+:is(.bfx-card-revelacao, .bfx-reveal-card):is(:hover, :focus-within) :is(.bfx-card-revelacao-acao, .bfx-reveal-card-action) {
+  color: var(--bfx-theme-text, #fff);
+  border-color: currentColor;
+}

@@ -1,0 +1,13 @@
+:is(.bfx-card-sobreposicao, .bfx-card-overlay) { position: relative; overflow: hidden; isolation: isolate; }
+:is(.bfx-card-sobreposicao, .bfx-card-overlay)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(var(--bfx-accent) / var(--bfx-overlay-opacity, 18%));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--bfx-duration-normal) ease;
+}
+:is(.bfx-card-sobreposicao, .bfx-card-overlay):hover::after,
+:is(.bfx-card-sobreposicao, .bfx-card-overlay):focus-within::after { opacity: 1; }

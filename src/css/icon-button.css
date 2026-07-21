@@ -1,0 +1,15 @@
+:is(.bfx-botao-icone, .bfx-icon-button) {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: var(--bfx-icon-button-size, 42px);
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: color var(--bfx-duration-fast) ease, background var(--bfx-duration-fast) ease, transform var(--bfx-duration-fast) ease;
+}
+:is(.bfx-botao-icone, .bfx-icon-button):hover,
+:is(.bfx-botao-icone, .bfx-icon-button):focus-visible { color: rgb(var(--bfx-accent)); background: rgb(var(--bfx-accent) / 12%); transform: translateY(-1px); }

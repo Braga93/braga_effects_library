@@ -1,0 +1,5 @@
+@keyframes bfx-floating-card {
+  0%, 100% { transform: translateY(0) rotate(var(--bfx-float-rotate, 0deg)); }
+  50% { transform: translateY(calc(var(--bfx-float-distance, 8px) * -1)) rotate(var(--bfx-float-rotate, 0deg)); }
+}
+:is(.bfx-card-flutuante, .bfx-floating-card) { animation: bfx-floating-card var(--bfx-float-duration, 5s) ease-in-out infinite; }

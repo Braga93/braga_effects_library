@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Braga Effects — Catálogo</title>
+  <link rel="stylesheet" href="/src/styles.css">
+  <style>
+    * { box-sizing: border-box; }
+    html { background: #05070c; }
+    body { margin: 0; min-height: 100vh; font-family: Inter, system-ui, sans-serif; }
+    button, input { font: inherit; }
+
+    .catalog {
+      min-height: 100vh;
+      padding: 32px 20px 56px;
+      --bfx-theme-a-bg: #250902;
+      --bfx-theme-a-surface: #38040e;
+      --bfx-theme-a-muted: #640d14;
+      --bfx-theme-a-strong: #800e13;
+      --bfx-theme-a-accent: 173 40 49;
+      --bfx-theme-a-text: #f5f5f5;
+      --bfx-theme-b-bg: #010912;
+      --bfx-theme-b-surface: #041b38;
+      --bfx-theme-b-muted: #0a2f52;
+      --bfx-theme-b-strong: #0d3d66;
+      --bfx-theme-b-accent: 44 143 209;
+      --bfx-theme-b-text: #f5f5f5;
+      --bfx-accent: var(--bfx-theme-accent);
+      background:
+        radial-gradient(circle at 18% 10%, rgb(var(--bfx-theme-accent) / 18%), transparent 34%),
+        var(--bfx-theme-bg);
+    }
+
+    .page { width: min(1100px, 100%); margin: auto; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .intro { margin: 34px 0 32px; }
+    .intro h1 { font-size: clamp(2.4rem, 7vw, 5rem); margin: .2em 0; }
+    .muted { color: color-mix(in srgb, var(--bfx-theme-text) 65%, transparent); }
+    .mode-status { margin: 8px 0 0; font: 700 .75rem/1.4 monospace; letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--bfx-theme-accent)); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 20px; }
+    .demo { min-height: 220px; padding: 24px; color: var(--bfx-theme-text); background: color-mix(in srgb, var(--bfx-theme-surface) 84%, transparent); border: 1px solid rgb(var(--bfx-theme-accent) / 18%); }
+    .demo h2 { margin-top: 0; font-size: 1.1rem; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .marquee { margin: 28px 0; padding: 12px 0; border-block: 1px solid rgb(var(--bfx-theme-accent) / 25%); }
+    .marquee span { padding-right: 42px; }
+    .matrix-demo { position: relative; min-height: 240px; background: color-mix(in srgb, var(--bfx-theme-bg) 85%, #000); overflow: hidden; }
+    .matrix-demo > div:last-child { position: relative; z-index: 2; padding: 24px; }
+    .product { background: radial-gradient(circle at 20% 20%, var(--bfx-theme-muted), var(--bfx-theme-bg) 75%); }
+    .shoe { width: 75%; aspect-ratio: 2.1; background: linear-gradient(140deg, #eee, rgb(var(--bfx-theme-accent))); border-radius: 60% 40% 45% 55%; transform: rotate(-10deg); }
+    .thumb { height: 130px; background: linear-gradient(135deg, var(--bfx-theme-muted), rgb(var(--bfx-theme-accent))); }
+    .cube-wrap { display: grid; place-items: center; height: 120px; }
+    .search-demo { color: #111; }
+    .search-demo input { width: 150px; }
+    .bfx-card-sobreposicao { border-radius: 14px; }
+    .tag { display: inline-block; margin-top: 10px; font-size: .75rem; color: color-mix(in srgb, var(--bfx-theme-text) 60%, transparent); }
+    .theme-demo-content { display: grid; gap: 10px; margin-top: 24px; padding: 18px; border-radius: 12px; background: rgb(var(--bfx-theme-accent) / 10%); border: 1px solid rgb(var(--bfx-theme-accent) / 24%); }
+    .theme-demo-content strong { color: rgb(var(--bfx-theme-accent)); }
+
+    .reveal-section { margin-top: 34px; }
+    .reveal-section > h2 { margin-bottom: 8px; color: var(--bfx-theme-text); }
+    .reveal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 18px; }
+    .reveal-visual { min-height: 220px; }
+    .reveal-visual--apps { background: linear-gradient(135deg, #12151f, #9b1c31 55%, #ffb36b); }
+    .reveal-visual--consulting { background: linear-gradient(135deg, #0b1d32, #23627c 55%, #8ee3ef); }
+    .reveal-visual--web { background: linear-gradient(135deg, #15110f, #6e301c 52%, #f5c36b); }
+    .reveal-visual::before, .reveal-visual::after { content: ""; position: absolute; border: 2px solid rgb(255 255 255 / 70%); border-radius: 12px; }
+    .reveal-visual::before { width: 42%; height: 58%; left: 18%; top: 20%; transform: rotate(-8deg); }
+    .reveal-visual::after { width: 34%; height: 46%; right: 14%; bottom: 14%; transform: rotate(10deg); }
+    @media (max-width: 800px) { .reveal-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="catalog bfx-escopo-tema" id="catalog-theme">
+    <main class="page bfx-entrada-suave">
+      <div class="topbar">
+        <p class="bfx-sobretitulo">Biblioteca privada</p>
+
+        <label class="bfx-alternador-tema" title="Trocar entre pílula vermelha e azul">
+          <input
+            type="checkbox"
+            class="bfx-alternador-tema-entrada"
+            role="switch"
+            aria-label="Trocar modo de cores"
+          >
+          <span class="bfx-alternador-tema-trilho" aria-hidden="true">
+            <span class="bfx-alternador-tema-botao"></span>
+          </span>
+          <span class="bfx-alternador-tema-rotulo bfx-alternador-tema-rotulo--a">Pílula vermelha</span>
+          <span class="bfx-alternador-tema-rotulo bfx-alternador-tema-rotulo--b">Pílula azul</span>
+        </label>
+      </div>
+
+      <header class="intro">
+        <h1>Braga Effects</h1>
+        <p class="muted">Efeitos extraídos e generalizados dos projetos enviados.</p>
+        <p class="mode-status" id="mode-status">Modo atual: pílula vermelha</p>
+        <div class="actions">
+          <a class="bfx-botao-preenchimento" href="#catalogo">Explorar catálogo</a>
+          <a class="bfx-botao-cibernetico" href="#cyber">Modo cyber</a>
+        </div>
+
+        <div class="theme-demo-content">
+          <strong class="bfx-apenas-tema-a">Conteúdo exclusivo do modo vermelho</strong>
+          <strong class="bfx-apenas-tema-b">Conteúdo exclusivo do modo azul</strong>
+          <span class="muted">O switch altera cores, textos condicionais e salva a escolha no navegador.</span>
+        </div>
+      </header>
+
+      <div class="bfx-faixa-infinita marquee">
+        <div class="bfx-faixa-infinita-trilho">
+          <span>THEME TOGGLE • GLASS PANEL • HOVER LIFT • MATRIX RAIN • CYBER BUTTON • FLOATING CARD • </span>
+          <span aria-hidden="true">THEME TOGGLE • GLASS PANEL • HOVER LIFT • MATRIX RAIN • CYBER BUTTON • FLOATING CARD • </span>
+        </div>
+      </div>
+
+      <section class="grid" id="catalogo">
+        <article class="demo bfx-painel-vidro bfx-elevar-hover"><h2>Glass + Lift</h2><p class="muted">Card translúcido com elevação.</p></article>
+        <article class="demo"><h2>Links e botões</h2><div class="actions"><a class="bfx-link-sublinhado" href="#">Underline</a><button class="bfx-botao-contorno-brilho">Outline</button><a class="bfx-link-seta" href="#"><span>Detalhes</span><span>→</span></a></div></article>
+        <article class="demo"><h2>Busca pill</h2><form class="bfx-busca-capsula search-demo"><input placeholder="Pesquisar..."><button type="button">⌕</button></form><span class="tag">Usa :focus-within</span></article>
+        <article class="demo"><h2 class="bfx-texto-pulsante">Texto pulsante</h2><p class="muted">Pulso de cor e brilho extraído da identidade Matrix.</p><a class="bfx-foco-visivel" href="#">Teste o foco com Tab</a></article>
+        <article class="demo"><h2>Cubo 3D</h2><div class="cube-wrap"><div class="bfx-cubo-giratorio"><span></span><span></span><span></span><span></span><span></span><span></span></div></div></article>
+        <article class="demo bfx-card-flutuante"><h2>Floating card</h2><p class="muted">Movimento lento para selos, preços e cards auxiliares.</p></article>
+        <article class="demo bfx-card-zoom-imagem bfx-card-sobreposicao"><div class="thumb"></div><div style="padding-top:16px"><h2>Zoom + overlay</h2><p class="muted">Combo para cards de produto.</p></div></article>
+        <article class="demo product"><h2>Product stage</h2><div class="bfx-palco-produto" style="--bfx-stage-height:150px"><div class="shoe"></div></div></article>
+        <article class="demo matrix-demo" id="cyber"><div class="bfx-chuva-matrix"><span style="left:8%;--bfx-matrix-speed:4s" data-chars="アイウエオ123ABC"></span><span style="left:28%;--bfx-matrix-speed:6s;animation-delay:-2s" data-chars="カキクケコ456DEF"></span><span style="left:52%;--bfx-matrix-speed:5s;animation-delay:-3s" data-chars="サシスセソ789GHI"></span><span style="left:78%;--bfx-matrix-speed:7s;animation-delay:-1s" data-chars="タチツテト012JKL"></span></div><div><h2>Matrix rain</h2><a class="bfx-botao-cibernetico" href="#">Entrar //</a></div></article>
+      </section>
+
+      <section class="reveal-section" id="reveal-cards">
+        <p class="bfx-sobretitulo">Extraído do portfólio Matrix</p>
+        <h2>Cards de revelação</h2>
+        <p class="muted">A imagem começa em cinza e com baixa opacidade. Passe o mouse ou use o teclado para revelar cor, zoom, borda e glow.</p>
+
+        <div class="reveal-grid">
+          <article class="bfx-card-revelacao">
+            <div class="bfx-card-revelacao-midia">
+              <div class="bfx-card-revelacao-visual reveal-visual reveal-visual--apps" role="img" aria-label="Representação abstrata de aplicativos móveis"></div>
+            </div>
+            <div class="bfx-card-revelacao-conteudo">
+              <h3>Aplicativos móveis</h3>
+              <p>Card revelado com recuperação de cor, leve zoom e elevação.</p>
+              <a href="#reveal-cards" class="bfx-card-revelacao-acao">Saiba mais _</a>
+            </div>
+          </article>
+
+          <article class="bfx-card-revelacao" style="--bfx-reveal-accent: 44 143 209">
+            <div class="bfx-card-revelacao-midia">
+              <div class="bfx-card-revelacao-visual reveal-visual reveal-visual--consulting" role="img" aria-label="Representação abstrata de consultoria em tecnologia"></div>
+            </div>
+            <div class="bfx-card-revelacao-conteudo">
+              <h3>Consultoria em TI</h3>
+              <p>O componente aceita uma cor de destaque diferente em cada card.</p>
+              <a href="#reveal-cards" class="bfx-card-revelacao-acao">Saiba mais _</a>
+            </div>
+          </article>
+
+          <article class="bfx-card-revelacao" style="--bfx-reveal-accent: 239 163 64">
+            <div class="bfx-card-revelacao-midia">
+              <div class="bfx-card-revelacao-visual reveal-visual reveal-visual--web" role="img" aria-label="Representação abstrata de desenvolvimento web"></div>
+            </div>
+            <div class="bfx-card-revelacao-conteudo">
+              <h3>Sites responsivos</h3>
+              <p>Funciona com imagens, vídeos, picture ou um visual CSS.</p>
+              <a href="#reveal-cards" class="bfx-card-revelacao-acao">Saiba mais _</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script type="module">
+    import { criarAlternadorTema } from "/src/index.js";
+
+    const input = document.querySelector(".bfx-alternador-tema-entrada");
+    const scope = document.querySelector("#catalog-theme");
+    const status = document.querySelector("#mode-status");
+
+    criarAlternadorTema(input, {
+      scope,
+      storageKey: "braga-effects-showcase-theme"
+    });
+
+    const updateStatus = () => {
+      status.textContent = input.checked
+        ? "Modo atual: pílula azul"
+        : "Modo atual: pílula vermelha";
+    };
+
+    updateStatus();
+    input.addEventListener("change", updateStatus);
+  </script>
+</body>
+</html>

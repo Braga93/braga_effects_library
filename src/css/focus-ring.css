@@ -1,0 +1,5 @@
+:is(.bfx-foco-visivel, .bfx-focus-ring):focus-visible {
+  outline: var(--bfx-foco-espessura, 2px) solid rgb(var(--bfx-accent));
+  outline-offset: var(--bfx-foco-distancia, 4px);
+  border-radius: var(--bfx-foco-raio, 4px);
+}

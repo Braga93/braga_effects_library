@@ -1,0 +1,12 @@
+@media (prefers-reduced-motion: reduce) {
+  :is(.bfx-elevar-hover, .bfx-hover-lift),
+  :is(.bfx-borda-brilhante, .bfx-glow-border)::before,
+  :is(.bfx-entrada-suave, .bfx-fade-in),
+  :is(.bfx-card-flutuante, .bfx-floating-card),
+  :is(.bfx-faixa-infinita-trilho, .bfx-marquee-track),
+  :is(.bfx-cubo-giratorio, .bfx-cube-spinner),
+  :is(.bfx-chuva-matrix, .bfx-matrix-rain) > span,
+  :is(.bfx-card-zoom-imagem, .bfx-image-zoom-card) img,
+  :is(.bfx-palco-produto, .bfx-product-stage) img,
+  :is(.bfx-texto-pulsante, .bfx-text-pulse) { animation: none !important; transition: none !important; }
+}

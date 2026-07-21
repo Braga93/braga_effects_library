@@ -1,0 +1,9 @@
+@keyframes bfx-marquee { to { transform: translateX(-50%); } }
+:is(.bfx-faixa-infinita, .bfx-marquee) { overflow: hidden; white-space: nowrap; }
+:is(.bfx-faixa-infinita-trilho, .bfx-marquee-track) {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  animation: bfx-marquee var(--bfx-marquee-duration, 25s) linear infinite;
+}
+:is(.bfx-faixa-infinita, .bfx-marquee):hover :is(.bfx-faixa-infinita-trilho, .bfx-marquee-track) { animation-play-state: paused; }

@@ -1,0 +1,38 @@
+:is(.bfx-botao-cibernetico, .bfx-cyber-button) {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 1rem 2.4rem;
+  border: 1px solid rgb(var(--bfx-accent) / 40%);
+  color: #fff;
+  background: rgb(5 8 12 / 55%);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform var(--bfx-duration-normal) var(--bfx-ease-out), border-color var(--bfx-duration-normal) var(--bfx-ease-out), box-shadow var(--bfx-duration-normal) var(--bfx-ease-out);
+}
+:is(.bfx-botao-cibernetico, .bfx-cyber-button)::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgb(var(--bfx-accent) / 68%), rgb(var(--bfx-accent) / 18%));
+  transition: height var(--bfx-duration-normal) var(--bfx-ease-out);
+}
+:is(.bfx-botao-cibernetico, .bfx-cyber-button)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgb(var(--bfx-accent) / 8%) 2px 3px, rgb(0 0 0 / 24%) 3px 4px);
+}
+:is(.bfx-botao-cibernetico, .bfx-cyber-button):hover,
+:is(.bfx-botao-cibernetico, .bfx-cyber-button):focus-visible { transform: scale(1.03); border-color: rgb(var(--bfx-accent)); box-shadow: 0 0 25px rgb(var(--bfx-accent) / 38%), inset 0 0 12px rgb(var(--bfx-accent) / 16%); }
+:is(.bfx-botao-cibernetico, .bfx-cyber-button):hover::before,
+:is(.bfx-botao-cibernetico, .bfx-cyber-button):focus-visible::before { height: 100%; }

@@ -1,0 +1,129 @@
+/*
+ * Theme Toggle
+ * Troca entre dois conjuntos de variáveis CSS por checkbox.
+ * O modo alternativo é aplicado ao container :is(.bfx-escopo-tema, .bfx-theme-scope).
+ */
+
+:is(.bfx-escopo-tema, .bfx-theme-scope) {
+  --bfx-theme-bg: var(--bfx-theme-a-bg, #250902);
+  --bfx-theme-surface: var(--bfx-theme-a-surface, #38040e);
+  --bfx-theme-muted: var(--bfx-theme-a-muted, #640d14);
+  --bfx-theme-strong: var(--bfx-theme-a-strong, #800e13);
+  --bfx-theme-accent: var(--bfx-theme-a-accent, 173 40 49);
+  --bfx-theme-text: var(--bfx-theme-a-text, #f5f5f5);
+
+  background: var(--bfx-theme-bg);
+  color: var(--bfx-theme-text);
+  transition: background-color 420ms var(--bfx-ease-out), color 420ms var(--bfx-ease-out);
+}
+
+:is(.bfx-alternador-tema-entrada, .bfx-theme-toggle-input) {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+:is(.bfx-alternador-tema, .bfx-theme-toggle) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border: 1px solid rgb(var(--bfx-theme-accent) / 35%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bfx-theme-bg) 72%, transparent);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 320ms var(--bfx-ease-out), background-color 320ms var(--bfx-ease-out);
+}
+
+:is(.bfx-alternador-tema, .bfx-theme-toggle):hover,
+:is(.bfx-alternador-tema, .bfx-theme-toggle):has(:is(.bfx-alternador-tema-entrada, .bfx-theme-toggle-input):focus-visible) {
+  border-color: rgb(var(--bfx-theme-accent));
+}
+
+:is(.bfx-alternador-tema-trilho, .bfx-theme-toggle-track) {
+  position: relative;
+  display: inline-block;
+  inline-size: 46px;
+  block-size: 24px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgb(var(--bfx-theme-accent));
+  box-shadow: inset 0 0 10px rgb(0 0 0 / 35%);
+  transition: background-color 420ms var(--bfx-ease-out);
+}
+
+:is(.bfx-alternador-tema-botao, .bfx-theme-toggle-handle) {
+  position: absolute;
+  inset-block-start: 3px;
+  inset-inline-start: 3px;
+  inline-size: 18px;
+  block-size: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 7px rgb(0 0 0 / 35%);
+  transition: inset-inline-start 420ms var(--bfx-ease-out), transform 420ms var(--bfx-ease-out);
+}
+
+:is(.bfx-alternador-tema-rotulo, .bfx-theme-toggle-label) {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: currentColor;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+:is(.bfx-alternador-tema-rotulo--b, .bfx-theme-toggle-label--b) {
+  display: none;
+}
+
+/* O checkbox fica dentro do label, evitando dependência da estrutura da página. */
+:is(.bfx-alternador-tema, .bfx-theme-toggle):has(:is(.bfx-alternador-tema-entrada, .bfx-theme-toggle-input):checked) :is(.bfx-alternador-tema-botao, .bfx-theme-toggle-handle) {
+  inset-inline-start: calc(100% - 21px);
+  transform: rotate(180deg);
+}
+
+:is(.bfx-alternador-tema, .bfx-theme-toggle):has(:is(.bfx-alternador-tema-entrada, .bfx-theme-toggle-input):checked) :is(.bfx-alternador-tema-rotulo--a, .bfx-theme-toggle-label--a) {
+  display: none;
+}
+
+:is(.bfx-alternador-tema, .bfx-theme-toggle):has(:is(.bfx-alternador-tema-entrada, .bfx-theme-toggle-input):checked) :is(.bfx-alternador-tema-rotulo--b, .bfx-theme-toggle-label--b) {
+  display: inline;
+}
+
+/* Tema B: o input precisa estar antes do escopo quando esta forma CSS-only for usada. */
+:is(.bfx-alternador-tema-entrada, .bfx-theme-toggle-input):checked ~ :is(.bfx-escopo-tema, .bfx-theme-scope),
+:is(.bfx-escopo-tema, .bfx-theme-scope)[data-bfx-theme='b'] {
+  --bfx-theme-bg: var(--bfx-theme-b-bg, #010912);
+  --bfx-theme-surface: var(--bfx-theme-b-surface, #041b38);
+  --bfx-theme-muted: var(--bfx-theme-b-muted, #0a2f52);
+  --bfx-theme-strong: var(--bfx-theme-b-strong, #0d3d66);
+  --bfx-theme-accent: var(--bfx-theme-b-accent, 44 143 209);
+  --bfx-theme-text: var(--bfx-theme-b-text, #f5f5f5);
+}
+
+/* Elementos alternativos dentro do escopo. */
+:is(.bfx-apenas-tema-b, .bfx-theme-only-b) {
+  display: none !important;
+}
+
+:is(.bfx-escopo-tema, .bfx-theme-scope)[data-bfx-theme='b'] :is(.bfx-apenas-tema-a, .bfx-theme-only-a) {
+  display: none !important;
+}
+
+:is(.bfx-escopo-tema, .bfx-theme-scope)[data-bfx-theme='b'] :is(.bfx-apenas-tema-b, .bfx-theme-only-b) {
+  display: revert !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.bfx-escopo-tema, .bfx-theme-scope),
+  :is(.bfx-alternador-tema, .bfx-theme-toggle),
+  :is(.bfx-alternador-tema-trilho, .bfx-theme-toggle-track),
+  :is(.bfx-alternador-tema-botao, .bfx-theme-toggle-handle) {
+    transition: none;
+  }
+}

@@ -1,0 +1,22 @@
+:is(.bfx-palco-produto, .bfx-product-stage) {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: var(--bfx-stage-height, 380px);
+}
+:is(.bfx-palco-produto, .bfx-product-stage)::after {
+  content: "";
+  position: absolute;
+  left: 9%; right: 9%; bottom: 9%;
+  height: 32px;
+  border-bottom: 1px solid rgb(255 255 255 / 24%);
+  border-radius: 50%;
+}
+:is(.bfx-palco-produto, .bfx-product-stage) img {
+  position: relative;
+  z-index: 1;
+  max-width: min(90%, 620px);
+  filter: drop-shadow(0 28px 32px rgb(0 0 0 / 42%));
+  transition: transform 500ms var(--bfx-ease-out);
+}
+:is(.bfx-palco-produto, .bfx-product-stage):hover img { transform: translateY(-7px) rotate(var(--bfx-product-rotate, -2deg)); }
