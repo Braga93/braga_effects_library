@@ -1,8 +1,7 @@
 {
-  "name": "@braga/effects",
-  "version": "1.4.0",
-  "description": "Biblioteca privada de efeitos CSS e utilitários JavaScript reutilizáveis, com API em português.",
-  "private": true,
+  "name": "@freak1d/effects",
+  "version": "1.5.0",
+  "description": "Biblioteca de efeitos CSS e utilitários JavaScript em português, pensada para quem está começando.",
   "type": "module",
   "exports": {
     ".": "./src/index.js",
@@ -25,9 +24,20 @@
   "keywords": [
     "css",
     "efeitos",
+    "efeitos-css",
     "javascript",
-    "biblioteca-privada",
+    "biblioteca",
+    "iniciantes",
     "portugues"
   ],
-  "license": "UNLICENSED"
+  "author": "Eduardo Braga Tabosa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Braga93/braga_effects_library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Braga93/braga_effects_library/issues"
+  },
+  "homepage": "https://github.com/Braga93/braga_effects_library#readme"
 }
