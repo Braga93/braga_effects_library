@@ -17,6 +17,11 @@ test("catálogo demonstra três cards de revelação", async () => {
   assert.match(html, /Cards de revelação/);
 });
 
+test("catálogo demonstra a textura granulada", async () => {
+  const html = await readFile(new URL("../examples/index.html", import.meta.url), "utf8");
+  assert.match(html, /bfx-textura-granulada/);
+});
+
 test("catálogo usa nomes em português", async () => {
   const html = await readFile(new URL("../examples/index.html", import.meta.url), "utf8");
   assert.match(html, /bfx-painel-vidro/);
