@@ -6,16 +6,16 @@ Instale Git, Node.js 20 ou superior e VS Code. Extraia a biblioteca em uma pasta
 
 ## Primeiro envio ao GitHub
 
-1. Crie no GitHub um repositório privado vazio chamado `braga-effects-library`. Não marque README, `.gitignore` ou licença, porque a pasta já contém esses arquivos.
+1. Crie no GitHub um repositório público vazio chamado `braga_effects_library`. Não marque README, `.gitignore` ou licença, porque a pasta já contém esses arquivos.
 2. Abra o terminal dentro da biblioteca.
 3. Execute:
 
 ```bash
 git init
 git add .
-git commit -m "feat: cria biblioteca privada de efeitos"
+git commit -m "feat: cria biblioteca de efeitos"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/braga-effects-library.git
+git remote add origin https://github.com/Braga93/braga_effects_library.git
 git push -u origin main
 ```
 
@@ -25,14 +25,14 @@ Mantenha biblioteca e projetos como pastas irmãs:
 
 ```text
 C:\Projetos\
-├── braga-effects-library\
+├── braga_effects_library\
 └── meu-site\
 ```
 
 No projeto:
 
 ```bash
-npm install ../braga-effects-library
+npm install ../braga_effects_library
 ```
 
 Importe o CSS:
@@ -47,8 +47,8 @@ Clone a biblioteca:
 
 ```bash
 cd C:\Projetos
-git clone https://github.com/SEU-USUARIO/braga-effects-library.git
-cd braga-effects-library
+git clone https://github.com/Braga93/braga_effects_library.git
+cd braga_effects_library
 npm install
 npm run check
 ```
@@ -56,13 +56,7 @@ npm run check
 Depois instale pelo caminho local no projeto, ou instale diretamente pelo Git:
 
 ```bash
-npm install git+https://github.com/SEU-USUARIO/braga-effects-library.git#v1.4.0
-```
-
-Para repositório privado, o computador deve estar autenticado no GitHub. SSH é mais cômodo para uso frequente:
-
-```bash
-npm install git+ssh://git@github.com/SEU-USUARIO/braga-effects-library.git#v1.4.0
+npm install git+https://github.com/Braga93/braga_effects_library.git#main
 ```
 
 ## Atualização diária

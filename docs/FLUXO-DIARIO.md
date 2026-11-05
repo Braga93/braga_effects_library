@@ -40,11 +40,11 @@ Após validar, integre na `main` pelo GitHub ou por merge local.
 Quando o projeto usa caminho local, rode nele:
 
 ```bash
-npm install ../braga-effects-library
+npm install ../braga_effects_library
 ```
 
-Quando usa GitHub via SSH:
+Quando instala direto do GitHub:
 
 ```bash
-npm install git+ssh://git@github.com/SEU-USUARIO/braga-effects-library.git#v1.0.0
+npm install git+https://github.com/Braga93/braga_effects_library.git#main
 ```

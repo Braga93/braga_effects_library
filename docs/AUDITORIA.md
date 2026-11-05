@@ -2,7 +2,7 @@
 
 ## Resultado
 
-A biblioteca contém os padrões visuais reutilizáveis dos três projetos. Layouts completos, conteúdo, imagens, logos e regras específicas de cada página não foram transformados em efeitos, pois isso criaria componentes rígidos e pouco reutilizáveis.
+A biblioteca contém os padrões visuais reutilizáveis dos projetos de origem. Layouts completos, conteúdo, imagens, logos e regras específicas de cada página não foram transformados em efeitos, pois isso criaria componentes rígidos e pouco reutilizáveis.
 
 ## Portfólio Matrix
 
@@ -10,11 +10,11 @@ Extraídos: textura granulada, cabeçalho translúcido por composição, sublinh
 
 Não extraídos como efeitos independentes: grid das seções, disposição do cabeçalho, textos, imagens Morpheus/Smith, links de WhatsApp, formulário e breakpoints específicos. Esses itens são estrutura ou conteúdo do projeto.
 
-## Esnete
+## Padrões de base
 
 Extraídos: grain, busca cápsula com `focus-within`, botão com preenchimento lateral, link com seta, palco/zoom de produto, card flutuante, faixa infinita, card com overlay e botão de ícone.
 
-Não extraídos como efeitos independentes: composição completa do hero, posição exata das etiquetas, grid do rodapé, identidade visual e imagens da marca. O card flutuante aceita variáveis e cobre tanto o selo quanto o card auxiliar.
+O card flutuante aceita variáveis e cobre tanto o selo quanto o card auxiliar.
 
 ## Nike
 
